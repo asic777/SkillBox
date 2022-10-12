@@ -46,7 +46,7 @@ func main() {
 		fmt.Print("Введите количество лет: ")
 		fmt.Scan(&yearsInvestPeriod)
 		if yearsInvestPeriod <= 0 {
-			fmt.Printf("Введите чиcло в диапозоне от 0 до %v\n", math.MaxInt)
+			fmt.Printf("Введите положительное целое чиcло\n")
 		} else {
 			break
 		}
@@ -63,5 +63,4 @@ func main() {
 	}
 
 	fmt.Printf("Ваш депозит: %f, доход банка за счет округления: %v", depositRound, bankIncome)
-
 }
