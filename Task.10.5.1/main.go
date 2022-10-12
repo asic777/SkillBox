@@ -18,23 +18,17 @@ import (
 
 func main() {
 	fmt.Println("Вычисление функции f(x) = exp(x)")
-	var x float64
-	for {
-		fmt.Print("Введите значение x: ")
-		_, err := fmt.Scan(&x)
-		if err != nil {
-			fmt.Printf("Введите чиcло типа Float64")
-		} else {
-			break
-		}
-	}
 
-	var n uint
+	var x float64
+	fmt.Print("Введите значение x: ")
+	fmt.Scan(&x)
+
+	var n int
 	for {
 		fmt.Print("Задайте значение точности n (разрядов после запятой): ")
-		_, err := fmt.Scan(&n)
-		if err != nil {
-			fmt.Printf("Введите чиcло в диапозоне от 0 до %v\n", string(math.MaxUint))
+		fmt.Scan(&n)
+		if n <= 0 {
+			fmt.Print("Введите положительное целое чиcло\n")
 		} else {
 			break
 		}
