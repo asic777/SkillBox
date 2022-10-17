@@ -52,7 +52,7 @@ func CreateFileReadOnly(nameFile string, mode fs.FileMode) {
 func ReadFromFile(nameFile string) string {
 	osFileHandler, err := os.Open(nameFile)
 	if err != nil {
-		fmt.Println("Не удалось открыть файл для чтения данных", err)
+		fmt.Println("Не удалось открыть файл для чтения данных")
 		//panic(err)
 		return err.Error()
 	}

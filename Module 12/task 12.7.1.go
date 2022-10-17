@@ -28,7 +28,7 @@ func main() {
 		fmt.Print("Введите сообщение для сохранения в файл (exit - для выхода): ")
 		inputMessage = readStringTerminal()
 		if inputMessage == "exit" {
-			return
+			break
 		}
 		logTime := time.Now()
 		logFile.WriteString(fmt.Sprintf("%v %s\n", logTime.Format("2006-01-02 15:04:05"), inputMessage))
