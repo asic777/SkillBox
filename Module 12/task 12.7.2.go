@@ -14,9 +14,9 @@ import (
 )
 
 func main() {
-	logFile, err := os.OpenFile("log.txt", os.O_RDONLY, 0444)
+	logFile, err := os.Open("log.txt")
 	if err != nil {
-		fmt.Println("Не удалось открыть файл", err)
+		fmt.Println("Не удалось открыть файл для чтения данных", err)
 		panic(err)
 	}
 	defer logFile.Close()
