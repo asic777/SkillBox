@@ -24,14 +24,16 @@ func main() {
 		if inputMessage == "exit" {
 			break
 		}
-		logTime := time.Now()
-		bufferWriteToFile.WriteString(fmt.Sprintf("%v %s\n", logTime.Format("2006-01-02 15:04:05"), inputMessage))
+		logTime := time.Now().Format("2006-01-02 15:04:05")
+		bufferWriteToFile.WriteString(fmt.Sprintf("%v %s\n", logTime, inputMessage))
 	}
 	err := ioutil.WriteFile(fileName, bufferWriteToFile.Bytes(), 0777)
 	if err != nil {
 		fmt.Println("Не удалось записать в файл последовательность байтов", err)
 		//panic(err)
 	}
+	fmt.Println("-------------------")
+	fmt.Printf("Вывод данных из файла %s:\n", fileName)
 	fmt.Println(ReadFromFile(fileName))
 }
 

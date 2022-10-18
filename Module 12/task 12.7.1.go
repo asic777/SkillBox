@@ -19,7 +19,8 @@ func main() {
 	logFile, err := os.OpenFile("log.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0777)
 	if err != nil {
 		fmt.Println("Не удалось создать или открыть файл", err)
-		panic(err)
+		//panic(err)
+		return
 	}
 	defer logFile.Close()
 
@@ -30,8 +31,8 @@ func main() {
 		if inputMessage == "exit" {
 			break
 		}
-		logTime := time.Now()
-		logFile.WriteString(fmt.Sprintf("%v %s\n", logTime.Format("2006-01-02 15:04:05"), inputMessage))
+		logTime := time.Now().Format("2006-01-02 15:04:05")
+		logFile.WriteString(fmt.Sprintf("%v %s\n", logTime, inputMessage))
 	}
 }
 
