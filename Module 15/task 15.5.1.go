@@ -16,7 +16,7 @@ func main() {
 
 	//var arr = [10]int{1, 1, 1, 2, 2, 2, 3, 3, 3, 4}
 	var arr [10]int
-	for i, _ := range arr {
+	for i := range arr {
 		fmt.Printf("Введите значение элемента массива [%d]: ", i)
 		fmt.Scan(&arr[i])
 	}

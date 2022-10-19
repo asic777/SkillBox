@@ -22,7 +22,7 @@ func main() {
 
 	arr := make([]int, lengthArray)
 
-	for i, _ := range arr {
+	for i := range arr {
 		fmt.Printf("Введите значение элемента массива [%d]: ", i)
 		fmt.Scan(&arr[i])
 	}
