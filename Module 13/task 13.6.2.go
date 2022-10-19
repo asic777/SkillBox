@@ -28,7 +28,8 @@ func main() {
 }
 
 func SwapInt(x1, x2 *int) {
-	*x1 += *x2
-	*x2 = *x1 - *x2
-	*x1 -= *x2
+	// *x1 += *x2
+	// *x2 = *x1 - *x2
+	// *x1 -= *x2
+	*x1, *x2 = *x2, *x1
 }
