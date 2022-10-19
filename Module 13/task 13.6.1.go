@@ -25,19 +25,16 @@ func main() {
 	sumEvenNumberFromRange(firstNumber, secondNumber)
 }
 func sumEvenNumberFromRange(x1, x2 int) {
-	startRange := x1
-	endRange := x2
 	if x1 > x2 {
-		startRange = x2
-		endRange = x1
+		x1, x2 = x2, x1
 	}
 
 	result := 0
-	for i := startRange; i <= endRange; i++ {
+	for i := x1; i <= x2; i++ {
 		if i%2 == 0 {
 			result += i
 		}
 	}
 
-	fmt.Printf("Сумма четных чисел в диапозомене между числами %d и %d = %d", startRange, endRange, result)
+	fmt.Printf("Сумма четных чисел в диапозомене между числами %d и %d = %d", x1, x2, result)
 }
