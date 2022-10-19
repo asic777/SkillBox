@@ -32,11 +32,14 @@ func main() {
 
 func reverseArray(arr []int) []int {
 	sizeArray := len(arr)
-	var tempInt int
+	// var tempInt int
+	// for i := 0; i < sizeArray/2; i++ {
+	// 	tempInt = arr[i]
+	// 	arr[i] = arr[sizeArray-1-i]
+	// 	arr[sizeArray-1-i] = tempInt
+	// }
 	for i := 0; i < sizeArray/2; i++ {
-		tempInt = arr[i]
-		arr[i] = arr[sizeArray-1-i]
-		arr[sizeArray-1-i] = tempInt
+		arr[i], arr[sizeArray-1-i] = arr[sizeArray-1-i], arr[i]
 	}
 	return arr
 }
