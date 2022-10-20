@@ -22,21 +22,15 @@ func main() {
 	}
 
 	fmt.Println("--------------------")
-	fmt.Printf("В массиве четных чисел - %d, нечетных - %d", calcMod2(arr), calcNotMod2(arr))
+	numbersEven, numbersNotEven := calcEven(arr)
+	fmt.Printf("В массиве четных чисел - %d, нечетных - %d", numbersEven, numbersNotEven)
 }
 
-func calcMod2(array [10]int) (countMod2 int) {
+func calcEven(array [10]int) (countMod2, countNotMod2 int) {
 	for _, r := range array {
 		if r%2 == 0 {
 			countMod2++
-		}
-	}
-	return
-}
-
-func calcNotMod2(array [10]int) (countNotMod2 int) {
-	for _, r := range array {
-		if r%2 != 0 {
+		} else {
 			countNotMod2++
 		}
 	}
