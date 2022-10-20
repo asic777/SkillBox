@@ -7,6 +7,8 @@ package main
 import "fmt"
 
 func main() {
+	fmt.Printf("Задание 19.4.2. Сортировка массивов пузырьком.\n")
+	fmt.Printf("--------------------\n")
 	firstArray := [6]int{6, 5, 4, 3, 2, 1}
 	fmt.Println("Массив до сортировки:", firstArray)
 	fmt.Println("Массив после сортировки пузырьком:", sortArray(firstArray))

@@ -7,6 +7,8 @@ package main
 import "fmt"
 
 func main() {
+	fmt.Printf("Задание 19.4.1. Слияние отсортированных массивов.\n")
+	fmt.Printf("--------------------\n")
 	firstArray := [4]int{1, 3, 88, 89}
 	secondArray := [5]int{13, 14, 15, 16, 17}
 	fmt.Println("Первый сортированный массив:", firstArray)
