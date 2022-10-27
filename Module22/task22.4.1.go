@@ -32,10 +32,10 @@ func main() {
 	}
 	fmt.Printf("--------------------\n")
 
-	if countElementsAfterIndex := arrayElementsAfterIndex(array, int(number)); countElementsAfterIndex < 0 {
-		fmt.Println("Число не найдено в массиве.")
-	} else {
+	if countElementsAfterIndex := arrayElementsAfterIndex(array, int(number)); countElementsAfterIndex != -1 {
 		fmt.Printf("Число найдено в массиве. Элементов после числа: %v\n", countElementsAfterIndex)
+	} else {
+		fmt.Println("Число не найдено в массиве.")
 	}
 }
 
