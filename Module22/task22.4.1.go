@@ -25,7 +25,7 @@ func main() {
 	for {
 		fmt.Print("Введите число для поиска в массиве: ")
 		if _, err := fmt.Scan(&number); err != nil {
-			fmt.Printf("Ошибка! Введите целое чиcло в диапозоне от %d до %d.\n", math.MinInt, math.MaxInt)
+			fmt.Printf("Ошибка! Введите целое число в диапазоне от %d до %d.\n", math.MinInt, math.MaxInt)
 		} else {
 			break
 		}
