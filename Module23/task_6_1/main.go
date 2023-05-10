@@ -1,8 +1,8 @@
 package main
 
 import (
+	//"Module23/task61"
 	"fmt"
-	"github.com/asic777/Skillbox/Module23/task61"
 	"math"
 	"sort"
 	"sync"
@@ -11,7 +11,7 @@ import (
 
 const (
 	countTest = 1
-	pow       = 6
+	pow       = 5
 )
 
 func main() {
@@ -72,7 +72,7 @@ func main() {
 			for i := 0; i < countTest; i++ {
 				arrayGo := make([]int, len(array[t]))
 				copy(arrayGo, array[t])
-				insertSort0(arrayGo)
+				InsertSort0(arrayGo)
 			}
 			duration := time.Since(start)
 			fmt.Println("Сортировка insertSort0: ", duration)
@@ -86,7 +86,7 @@ func main() {
 			for i := 0; i < countTest; i++ {
 				arrayGo := make([]int, len(array[t]))
 				copy(arrayGo, array[t])
-				insertSort1(arrayGo)
+				InsertSort1(arrayGo)
 			}
 			duration := time.Since(start)
 			fmt.Println("Сортировка insertSort1: ", duration)
@@ -112,7 +112,7 @@ func main() {
 			for i := 0; i < countTest; i++ {
 				arrayGo := make([]int, len(array[t]))
 				copy(arrayGo, array[t])
-				insertSort3(arrayGo)
+				InsertSort3(arrayGo)
 			}
 			duration := time.Since(start)
 			fmt.Println("Сортировка insertSort3: ", duration)
@@ -125,7 +125,7 @@ func main() {
 			for i := 0; i < countTest; i++ {
 				arrayGo := make([]int, len(array[t]))
 				copy(arrayGo, array[t])
-				insertSort4(arrayGo)
+				InsertSort4(arrayGo)
 			}
 			duration := time.Since(start)
 			fmt.Println("Сортировка insertSort4: ", duration)
@@ -138,7 +138,7 @@ func main() {
 			for i := 0; i < countTest; i++ {
 				arrayGo := make([]int, len(array[t]))
 				copy(arrayGo, array[t])
-				bubbleSort1(arrayGo)
+				BubbleSort1(arrayGo)
 			}
 			duration := time.Since(start)
 			fmt.Println("Сортировка bubbleSort1: ", duration)
@@ -151,7 +151,7 @@ func main() {
 			for i := 0; i < countTest; i++ {
 				arrayGo := make([]int, len(array[t]))
 				copy(arrayGo, array[t])
-				bubbleSort2(arrayGo)
+				BubbleSort2(arrayGo)
 			}
 			duration := time.Since(start)
 			fmt.Println("Сортировка bubbleSort2: ", duration)
@@ -164,7 +164,7 @@ func main() {
 		// 	for i := 0; i < countTest; i++ {
 		// 		arrayGo := make([]int, len(array[t]))
 		// 		copy(arrayGo, array[t])
-		// 		bubbleSortRecursion(arrayGo, len(arrayGo))
+		// 		task61.BubbleSortRecursion(arrayGo, len(arrayGo))
 		// 	}
 		// 	duration := time.Since(start)
 		// 	fmt.Println("Сортировка bubbleSortRecursion: ", duration)

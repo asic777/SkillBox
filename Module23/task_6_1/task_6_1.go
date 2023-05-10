@@ -6,19 +6,19 @@
 // Алгоритм сортировки доступен на «Википедии».
 // В качестве среды разработки используйте GoLand или VSCode.
 
-package task61
+package main
 
 import (
-	//"fmt"
-	//"math"
-	"math/rand"
-	//"sort"
-	//"sync"
-	"time"
+// "fmt"
+// "math"
+// "math/rand"
+// "sort"
+// "sync"
+// "time"
 )
 
 // глупая сортировка вставками
-func insertSort0(array []int) []int {
+func InsertSort0(array []int) []int {
 	length := len(array)
 	for i := 1; i < length; i++ {
 		for j := i; j > 0; j-- {
@@ -31,7 +31,7 @@ func insertSort0(array []int) []int {
 }
 
 // лучше на упорядоченных массивах
-func insertSort1(array []int) []int {
+func InsertSort1(array []int) []int {
 	length := len(array)
 	for i := 1; i < length; i++ {
 		for j := i; j >= 1 && array[j] < array[j-1]; j-- {
@@ -56,7 +56,7 @@ func InsertSort2(array []int) []int {
 }
 
 // лучше на неупорядоченных массивах
-func insertSort3(array []int) []int {
+func InsertSort3(array []int) []int {
 	for i := 1; i < len(array); i++ {
 		for j := i; ; j-- {
 			if j >= 1 && array[i] < array[j-1] {
@@ -74,7 +74,7 @@ func insertSort3(array []int) []int {
 }
 
 // лучше на неупорядоченных массивах
-func insertSort4(array []int) []int {
+func InsertSort4(array []int) []int {
 	for i := 1; i < len(array); i++ {
 		for j := i; ; j-- {
 			if j >= 1 && array[i] < array[j-1] {
@@ -91,7 +91,7 @@ func insertSort4(array []int) []int {
 }
 
 // лучше на упорядоченных массивах
-func bubbleSort1(array []int) []int {
+func BubbleSort1(array []int) []int {
 	isSort := false
 	length := len(array)
 	for !isSort {
@@ -107,7 +107,7 @@ func bubbleSort1(array []int) []int {
 }
 
 // лучше на неупорядоченных массивах
-func bubbleSort2(array []int) []int {
+func BubbleSort2(array []int) []int {
 	length := len(array)
 	for i := 0; i < length-1; i++ {
 		for j := i + 1; j < length; j++ {
@@ -119,7 +119,7 @@ func bubbleSort2(array []int) []int {
 	return array
 }
 
-// func bubbleSortRecursion(array []int, size int) []int {
+// func BubbleSortRecursion(array []int, size int) []int {
 // 	if size == 1 {
 // 		return array
 // 	}
@@ -128,15 +128,15 @@ func bubbleSort2(array []int) []int {
 // 			array[i], array[i+1] = array[i+1], array[i]
 // 		}
 // 	}
-// 	bubbleSortRecursion(array, size-1)
+// 	BubbleSortRecursion(array, size-1)
 // 	return array
 // }
 
-func generateArray(lengthArray, numbersRange int) (resultArray []int) {
-	resultArray = make([]int, lengthArray)
-	rand.Seed(time.Now().UnixNano())
-	for i := 0; i < lengthArray; i++ {
-		resultArray[i] = rand.Intn(numbersRange)
-	}
-	return
-}
+// func GenerateArray(lengthArray, numbersRange int) (resultArray []int) {
+// 	resultArray = make([]int, lengthArray)
+// 	rand.Seed(time.Now().UnixNano())
+// 	for i := 0; i < lengthArray; i++ {
+// 		resultArray[i] = rand.Intn(numbersRange)
+// 	}
+// 	return
+// }
