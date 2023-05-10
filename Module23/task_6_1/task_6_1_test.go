@@ -134,6 +134,19 @@ func funcTest(f func([]int) []int, t *testing.T) {
 	}
 }
 
+func funcTestRecursion(f func([]int, int) []int, t *testing.T) {
+	for k, input := range inputTestArray {
+		output := make([]int, len(input))
+		copy(output, input)
+		output = f(output, len(output))
+		for i, o := range output {
+			if exemplarTestArray[k][i] != o {
+				t.Error("Expected  ", exemplarTestArray[k][i], ", got", o)
+			}
+		}
+		t.Log(input, output, exemplarTestArray[k])
+	}
+}
 func TestInsertSort0(t *testing.T) {
 	funcTest(InsertSort0, t)
 }
@@ -155,6 +168,10 @@ func TestBubbleSort1(t *testing.T) {
 func TestBubbleSort2(t *testing.T) {
 	funcTest(BubbleSort2, t)
 }
+
+// func TestBubbleSortRecursion(t *testing.T) {
+// 	funcTestRecursion(BubbleSortRecursion, t)
+// }
 
 func BenchmarkInsertSort2(b *testing.B) {
 	input := []int{9, 8, 7, 6, 5, 4, 3, 2, 1, 0}
