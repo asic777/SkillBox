@@ -7,10 +7,11 @@ import (
 )
 
 const (
-	benchPow10 = 3
+	benchPow10 = 3 // размер массива 10 в степени benchPow10
 )
 
 var (
+	// Входные данные для тестирования функций
 	inputArrTest = [][]int{
 		{},
 		{-1},
@@ -53,6 +54,7 @@ var (
 		{23, 65, 234, 764, 1, 57, 86, 121, -84, -500},
 		{-500, -84, 1, 23, 57, 65, 86, 121, 234, 764}}
 
+	// Эталонный результат сортировки
 	exemplarArrTest = [][]int{
 		{},
 		{-1},
@@ -95,10 +97,11 @@ var (
 		{-500, -84, 1, 23, 57, 65, 86, 121, 234, 764},
 		{-500, -84, 1, 23, 57, 65, 86, 121, 234, 764}}
 
+	// Переменные для измерения производительности
 	lenArrBench           int
-	exemplarArrBench      = []int{}
-	mediumComplexArrBench = []int{}
-	highComplexArrBench   = []int{}
+	exemplarArrBench      = []int{} // отсортированный эталонный массив
+	mediumComplexArrBench = []int{} // массив, наполовину отсортированный
+	highComplexArrBench   = []int{} // массив, абсолютно несортированный
 )
 
 func init() {
@@ -115,12 +118,12 @@ func init() {
 	for i := 0; i < int(lenArrBench)/2; i++ {
 		mediumComplexArrBench = append(mediumComplexArrBench, i)
 	}
-
 	for i := lenArrBench - 1; i >= lenArrBench/2; i-- {
 		mediumComplexArrBench = append(mediumComplexArrBench, i)
 	}
 }
 
+// Метод, принимающий функцию, которую тестируем
 func funcTest(f func([]int) []int, t *testing.T) {
 	for k, input := range inputArrTest {
 		output := make([]int, len(input))
@@ -193,6 +196,7 @@ func TestSortSlice(t *testing.T) {
 // 	funcTestRecursion(BubbleSortRecursion, t)
 // }
 
+// Метод, принимающий функцию, производительность которой измеряем
 func funcBench(f func([]int) []int, b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		b.StopTimer()
@@ -203,6 +207,7 @@ func funcBench(f func([]int) []int, b *testing.B) {
 		highComplexArr := make([]int, len(highComplexArrBench))
 		copy(highComplexArr, highComplexArrBench)
 
+		// Сортируем массивы разной сложности
 		b.StartTimer()
 		f(easyComplexArr)
 		f(mediumComplexArr)

@@ -19,7 +19,7 @@ func main() {
 	for {
 		fmt.Print("Введите x: ")
 		if _, err := fmt.Scan(&numberX); err != nil {
-			fmt.Printf("Ошибка! Введите целое чило в диапозоне от %d до %d.\n", math.MinInt16, math.MaxInt16)
+			fmt.Printf("Ошибка! Введите целое чиcло в диапозоне от %d до %d.\n", math.MinInt16, math.MaxInt16)
 		} else {
 			break
 		}
@@ -28,7 +28,7 @@ func main() {
 	for {
 		fmt.Print("Введите y: ")
 		if _, err := fmt.Scan(&numberY); err != nil {
-			fmt.Printf("Ошибка! Введите целое чило в диапозоне от %d до %d.\n", 0, math.MaxUint8)
+			fmt.Printf("Ошибка! Введите целое чиcло в диапозоне от %d до %d.\n", 0, math.MaxUint8)
 		} else {
 			break
 		}
@@ -37,7 +37,7 @@ func main() {
 	for {
 		fmt.Print("Введите z: ")
 		if _, err := fmt.Scan(&numberZ); err != nil {
-			fmt.Printf("Ошибка! Введите целое чило в диапозоне от %v до %v.\n", -math.MaxFloat32, math.MaxFloat32)
+			fmt.Printf("Ошибка! Введите целое чиcло в диапозоне от %v до %v.\n", -math.MaxFloat32, math.MaxFloat32)
 		} else {
 			break
 		}

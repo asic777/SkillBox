@@ -152,11 +152,11 @@ func SortSlice(array []int) []int {
 	return array
 }
 
-func GenerateArray(lengthArray uint64, numbersRange int) (resultArray []int) {
+func GenerateArray(lengthArray uint32, numbersRange uint32) (resultArray []int) {
 	resultArray = make([]int, lengthArray)
-	var i uint64
+	var i uint32
 	for i = 0; i < lengthArray; i++ {
-		resultArray[i] = rand.Intn(numbersRange)
+		resultArray[i] = rand.Intn(int(numbersRange))
 	}
 	return
 }
