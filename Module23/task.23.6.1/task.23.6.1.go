@@ -9,12 +9,8 @@
 package main
 
 import (
-// "fmt"
-// "math"
-// "math/rand"
-// "sort"
-// "sync"
-// "time"
+	"math/rand"
+	"sort"
 )
 
 // глупая сортировка вставками
@@ -41,7 +37,7 @@ func InsertSort1(array []int) []int {
 	return array
 }
 
-// оптимальная сортировка на любых массивах невысокой сложности
+// оптимальная сортировка вставками
 func InsertSort2(array []int) []int {
 	length := len(array)
 	for i := 1; i < length; i++ {
@@ -90,7 +86,7 @@ func InsertSort4(array []int) []int {
 	return array
 }
 
-// лучше на упорядоченных массивах
+// только для почти упорядоченных массивах
 func BubbleSort1(array []int) []int {
 	isSort := false
 	length := len(array)
@@ -106,7 +102,7 @@ func BubbleSort1(array []int) []int {
 	return array
 }
 
-// лучше на неупорядоченных массивах
+// оптимальный вариант сортировки пузырьком
 func BubbleSort2(array []int) []int {
 	length := len(array)
 	for i := 0; i < length-1; i++ {
@@ -119,9 +115,22 @@ func BubbleSort2(array []int) []int {
 	return array
 }
 
-// func BubbleSortRecursion(array []int, size int) []int {
+// лучше для несортированных массивов
+func BubbleSort3(array []int) []int {
+	length := len(array)
+	for i := 0; i < length; i++ {
+		for j := 1; j < length-i; j++ {
+			if array[j-1] > array[j] {
+				array[j-1], array[j] = array[j], array[j-1]
+			}
+		}
+	}
+	return array
+}
+
+// func BubbleSortRecursion(array []int, size int) {
 // 	if size == 1 {
-// 		return array
+// 		return
 // 	}
 // 	for i := 0; i < size-1; i++ {
 // 		if array[i] > array[i+1] {
@@ -129,14 +138,25 @@ func BubbleSort2(array []int) []int {
 // 		}
 // 	}
 // 	BubbleSortRecursion(array, size-1)
-// 	return array
 // }
 
-// func GenerateArray(lengthArray, numbersRange int) (resultArray []int) {
-// 	resultArray = make([]int, lengthArray)
-// 	rand.Seed(time.Now().UnixNano())
-// 	for i := 0; i < lengthArray; i++ {
-// 		resultArray[i] = rand.Intn(numbersRange)
-// 	}
-// 	return
-// }
+func SortInts(array []int) []int {
+	sort.Ints(array)
+	return array
+}
+
+func SortSlice(array []int) []int {
+	sort.Slice(array, func(i, j int) bool {
+		return array[i] < array[j]
+	})
+	return array
+}
+
+func GenerateArray(lengthArray uint64, numbersRange int) (resultArray []int) {
+	resultArray = make([]int, lengthArray)
+	var i uint64
+	for i = 0; i < lengthArray; i++ {
+		resultArray[i] = rand.Intn(numbersRange)
+	}
+	return
+}

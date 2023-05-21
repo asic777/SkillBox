@@ -1,0 +1,16 @@
+goos: windows
+goarch: amd64
+pkg: SkillBox/Module23/task.23.6.1
+cpu: Intel(R) Core(TM) i7-4700MQ CPU @ 2.40GHz
+BenchmarkInsertSort0-8   	     799	   1518365 ns/op	       2 B/op	       0 allocs/op
+BenchmarkInsertSort1-8   	    1130	   1032179 ns/op	       0 B/op	       0 allocs/op
+BenchmarkInsertSort2-8   	    4134	    302106 ns/op	       0 B/op	       0 allocs/op
+BenchmarkInsertSort3-8   	    1620	    732622 ns/op	       0 B/op	       0 allocs/op
+BenchmarkInsertSort4-8   	    2854	    428384 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBubbleSort1-8   	     687	   1793186 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBubbleSort2-8   	    1088	   1121000 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBubbleSort3-8   	     640	   1917601 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSortInts-8      	   59090	     21109 ns/op	      72 B/op	       3 allocs/op
+BenchmarkSortSlice-8     	   60916	     18463 ns/op	     168 B/op	       6 allocs/op
+PASS
+ok  	SkillBox/Module23/task.23.6.1	17.142s
