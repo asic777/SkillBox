@@ -35,15 +35,19 @@ func main() {
 	fmt.Println(parseTest(sentences, chars))
 
 }
-func parseTest(sentences []string, chars []rune) (map[string]int, error) {
-	result := make(map[string]int)
+func parseTest(sentences []string, chars []rune) ([][]int, error) {
+	result := make([][]int, 0, 0)
 
-	for _, c := range chars {
-		for _, s := range sentences {
-			s = strings.ToUpper(s)
-			index := strings.LastIndexAny(s, c)
-			if index != -1 {
-				result[string(c)] = index
+	for i, s := range sentences {
+		s = strings.ToUpper(s)
+		subS := strings.Fields(s)
+		for _, sub := range subS {
+			for j, c := range chars {
+
+				index := strings.IndexRune(s, c)
+				if index != -1 {
+					result[string(c)] = index
+				}
 			}
 		}
 

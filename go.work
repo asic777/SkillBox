@@ -1,3 +1,6 @@
 go 1.20
 
-use ./Module23
+use (
+	./Module23
+	./Module24
+)
