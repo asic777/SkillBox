@@ -15,6 +15,9 @@
 // 'E' position 1
 // 'L' position 9
 
+// Условия задачи не совсем ясные, не совпадают с примером вывода.
+// 1. Для решения взял за условие, что нужно найти позицию руны в слове, которое ближе к концу предложения, это условие соответствует примеру вывода.
+// 2. Найти нужно именно позицию руны, а не позицию стартового байта руны. Из примера вывода не ясно, какая позиция нужна, стартого байта или символа в строке.
 package main
 
 import (
@@ -28,13 +31,13 @@ func main() {
 	fmt.Printf("Задание 24.5.2. Поиск символов в нескольких строках.\n")
 	fmt.Printf("----------------------------------------------------\n\n")
 
-	sentences := []string{"Hello world", "Hello Skillbox", "Привет Мир", "Привет Skillbox"}
-	chars := []rune{'H', 'E', 'L', 'П', 'М'}
-	fmt.Printf("Исходный массив предложений:\t[%s]\n", strings.Join(sentences, "] ["))
+	sentences := [4]string{"Hello world", "Hello Skillbox", "Привет Мир", "Привет Skillbox"}
+	chars := [5]rune{'H', 'E', 'L', 'П', 'М'}
+	fmt.Printf("Исходный массив предложений:\t[%s]\n", strings.Join(sentences[:], "] ["))
 	fmt.Printf("Исходный массив рун:\t\t%s\n", strings.ReplaceAll(fmt.Sprintf("%c", chars), " ", "] ["))
 	fmt.Printf("---------------------------------------------------------------------------------------------\n\n")
 
-	resultArray, err := parseTest(sentences, chars)
+	resultArray, err := parseTest(sentences[:], chars[:])
 	if err != nil {
 		fmt.Println("Ошибка: ", err)
 		return
