@@ -18,39 +18,66 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"strings"
 )
 
 func main() {
-	fmt.Printf("Задание 23.6.2. Поиск символов в нескольких строках.\n")
-	fmt.Printf("--------------------\n")
+	fmt.Printf("----------------------------------------------------\n")
+	fmt.Printf("Задание 24.5.2. Поиск символов в нескольких строках.\n")
+	fmt.Printf("----------------------------------------------------\n\n")
 
 	sentences := []string{"Hello world", "Hello Skillbox", "Привет Мир", "Привет Skillbox"}
 	chars := []rune{'H', 'E', 'L', 'П', 'М'}
-	// for i := 0; i < 4; i++ {
-	// 	fmt.Println(len(sentences[i]))
-	// }
+	fmt.Printf("Исходный массив предложений:\t[%s]\n", strings.Join(sentences, "] ["))
+	fmt.Printf("Исходный массив рун:\t\t%s\n", strings.ReplaceAll(fmt.Sprintf("%c", chars), " ", "] ["))
+	fmt.Printf("---------------------------------------------------------------------------------------------\n\n")
 
-	fmt.Println(parseTest(sentences, chars))
+	resultArray, err := parseTest(sentences, chars)
+	if err != nil {
+		fmt.Println("Ошибка: ", err)
+		return
+	}
 
+	fmt.Printf("Index Rune in Sentinel\t%3c\n", chars)
+	for i := range sentences {
+		fmt.Printf("---------------------------------------------\n")
+		fmt.Printf("%s\t\t", sentences[i])
+		fmt.Printf("%s\n", strings.ReplaceAll(fmt.Sprintf("%3d", resultArray[i]), "-1", " -"))
+	}
+	fmt.Printf("---------------------------------------------\n\n")
+	fmt.Println("Программа завершена.")
 }
+
 func parseTest(sentences []string, chars []rune) ([][]int, error) {
-	result := make([][]int, 0, 0)
+	if len(sentences) == 0 || len(chars) == 0 {
+		return nil, errors.New("the size of the incoming slice is 0")
+	}
+
+	result := make([][]int, len(sentences))
+	for i := range result {
+		result[i] = make([]int, len(chars))
+	}
 
 	for i, s := range sentences {
 		s = strings.ToUpper(s)
-		subS := strings.Fields(s)
-		for _, sub := range subS {
-			for j, c := range chars {
+		arrRunes := []rune(s)
 
-				index := strings.IndexRune(s, c)
-				if index != -1 {
-					result[string(c)] = index
+		for j, c := range chars {
+			index := -1
+			for k := len(arrRunes) - 1; k >= 0; k-- {
+				if arrRunes[k] == c {
+					index = k
+				}
+				if arrRunes[k] == ' ' && index != -1 {
+					k = -1
+					break
 				}
 			}
+			result[i][j] = index
 		}
-
 	}
+
 	return result, nil
 }
