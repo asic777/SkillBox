@@ -40,13 +40,13 @@ func main() {
 		return
 	}
 
-	fmt.Printf("Index Rune in Sentinel\t%3c\n", chars)
+	fmt.Printf("Index of Rune in Sentence\t%3c\n", chars)
 	for i := range sentences {
-		fmt.Printf("---------------------------------------------\n")
-		fmt.Printf("%s\t\t", sentences[i])
+		fmt.Printf("-----------------------------------------------------\n")
+		fmt.Printf("%s\t\t\t", sentences[i])
 		fmt.Printf("%s\n", strings.ReplaceAll(fmt.Sprintf("%3d", resultArray[i]), "-1", " -"))
 	}
-	fmt.Printf("---------------------------------------------\n\n")
+	fmt.Printf("-----------------------------------------------------\n\n")
 	fmt.Println("Программа завершена.")
 }
 
@@ -62,15 +62,15 @@ func parseTest(sentences []string, chars []rune) ([][]int, error) {
 
 	for i, s := range sentences {
 		s = strings.ToUpper(s)
-		arrRunes := []rune(s)
+		arrayRunes := []rune(s)
 
 		for j, c := range chars {
 			index := -1
-			for k := len(arrRunes) - 1; k >= 0; k-- {
-				if arrRunes[k] == c {
+			for k := len(arrayRunes) - 1; k >= 0; k-- {
+				if arrayRunes[k] == c {
 					index = k
 				}
-				if arrRunes[k] == ' ' && index != -1 {
+				if arrayRunes[k] == ' ' && index != -1 {
 					k = -1
 					break
 				}
